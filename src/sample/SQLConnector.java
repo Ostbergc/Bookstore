@@ -3,10 +3,7 @@ package sample;
 
 import javafx.scene.control.Alert;
 
-import java.awt.print.Book;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Collections;
 
 
 public class SQLConnector {
