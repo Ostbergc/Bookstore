@@ -73,7 +73,7 @@ public class SQLConnector {
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
 
-
+            System.out.println("userin: " + userIn + " , pwin: " + pwIn);
             while (resultSet.next()) {
                 if (resultSet.getString("email").equals(userIn) && resultSet.getString("password").equals(pwIn)) {
                     System.out.println(resultSet.getString("email") + " is email");

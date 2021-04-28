@@ -43,7 +43,7 @@ public class Controller {
 
         String pw = pwTextField.getText();
         String email = emailTextField.getText();
-        Main.isLoggedIn = connector.verifyLogin(pw, email);
+        Main.isLoggedIn = connector.verifyLogin(email, pw);
         System.out.println("isLoggedIn: " + Main.isLoggedIn);
         if (Main.isLoggedIn == true) {
             logOutBtn.setVisible(true);
