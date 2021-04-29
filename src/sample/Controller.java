@@ -102,6 +102,7 @@ public class Controller {
 
         //if the user is logged in, hide all the elements related to logging in and/or registering
         if (Main.isLoggedIn == true) {
+            emailTextField.clear();
             logOutBtn.setVisible(true);
             loginBtn.setVisible(false);
             registerButton.setVisible(false);
