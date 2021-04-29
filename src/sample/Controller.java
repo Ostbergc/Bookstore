@@ -26,8 +26,56 @@ public class Controller {
     @FXML
     private Label passwordLabel;
 
+    @FXML
+    private Button makeAccBtn;
+
+    @FXML
+    private TextField zipTextField;
+
+    @FXML
+    private TextField stateTextField;
+
+    @FXML
+    private Label firstNameLabel;
+
+    @FXML
+    private Label lastNameLabel;
+
+    @FXML
+    private Label addressLabel;
+
+    @FXML
+    private Label zipLabel;
+
+    @FXML
+    private Label stateLabel;
+
+    @FXML
+    private Label countryLabel;
+
+    @FXML
+    private TextField countryTextField;
+
+    @FXML
+    private TextField firstNameTextField;
+
+    @FXML
+    private TextField lastNameTextField;
+
+    @FXML
+    private TextField addressTextField;
+
+    @FXML
+    private TextField cityTextField;
+
+    @FXML
+    private Label cityLabel;
+
     //connector object to use the SQL related methods in the SQLConnector class
     SQLConnector connector = new SQLConnector();
+
+    //used to toggle certain elements related to registration of the UI such as firstname label & textfield
+    static boolean toggleUI = true;
 
     public void initReg() {
 
@@ -35,15 +83,16 @@ public class Controller {
         String email = emailTextField.getText();
 
         //assign the userOfApp object in the Main class to what the user has inserted
-        Main.userOfApp = new User(email, pw, "testName", "testLastName", "testAddress", "testCity", "testZip", "testState", "testCountry", false);
+        Main.userOfApp = new User(email, pw, firstNameTextField.getText(), lastNameTextField.getText(), addressTextField.getText(), cityTextField.getText(), zipTextField.getText(), stateTextField.getText(), countryTextField.getText(), false);
         //creates the user in the database
         connector.createUser(Main.userOfApp);
         emailTextField.clear();
         pwTextField.clear();
+        toggleRegUI();
 
     }
 
-    public void initLog() {
+    public void initLogIn() {
 
         String pw = pwTextField.getText();
         String email = emailTextField.getText();
@@ -60,6 +109,7 @@ public class Controller {
             passwordLabel.setVisible(false);
             emailTextField.setVisible(false);
             pwTextField.setVisible(false);
+            makeAccBtn.setVisible(false);
         }
         pwTextField.clear();
     }
@@ -69,17 +119,46 @@ public class Controller {
         Main.isLoggedIn = false;
         Main.userOfApp = null;
 
+        //resets UI to scratch
         logOutBtn.setVisible(false);
-        registerButton.setVisible(true);
         loginBtn.setVisible(true);
         emailLabel.setVisible(true);
         passwordLabel.setVisible(true);
         emailTextField.setVisible(true);
         pwTextField.setVisible(true);
+        makeAccBtn.setVisible(true);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Log Out");
         alert.setContentText("You have successfully logged out.");
         alert.show();
+    }
+
+    public void toggleRegUI() {
+        System.out.println("toggleRegUI");
+        registerButton.setVisible(toggleUI);
+
+        firstNameLabel.setVisible(toggleUI);
+        firstNameTextField.setVisible(toggleUI);
+
+        lastNameLabel.setVisible(toggleUI);
+        lastNameTextField.setVisible(toggleUI);
+
+        addressLabel.setVisible(toggleUI);
+        addressTextField.setVisible(toggleUI);
+
+        zipLabel.setVisible(toggleUI);
+        zipTextField.setVisible(toggleUI);
+
+        cityTextField.setVisible(toggleUI);
+        cityLabel.setVisible(toggleUI);
+
+        stateLabel.setVisible(toggleUI);
+        stateTextField.setVisible(toggleUI);
+
+        countryLabel.setVisible(toggleUI);
+        countryTextField.setVisible(toggleUI);
+
+        toggleUI = !toggleUI;
     }
 
 }

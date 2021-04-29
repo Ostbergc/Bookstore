@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    //user object in which the entire app will interact around, this object is entirely based on the user
+    //user object in which the entire app will interact around, this object is entirely based on the user (isemployee, firstname, email, passwoerd, etc.)
     public static User userOfApp;
 
     //boolean to check whether the user is logged in, the entire app will act around the value of this variable
