@@ -30,7 +30,6 @@ public class SQLConnector {
         }
     }
 
-
     public void createUser(User user) {
         System.out.println("Entered createuser");
 

@@ -1,9 +1,26 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class Controller {
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+
+    @FXML
+    private Button searchButton;
 
     @FXML
     private TextField emailTextField;
@@ -101,7 +118,7 @@ public class Controller {
         System.out.println("isLoggedIn: " + Main.isLoggedIn);
 
         //if the user is logged in, hide all the elements related to logging in and/or registering
-        if (Main.isLoggedIn == true) {
+        if (Main.isLoggedIn) {
             emailTextField.clear();
             logOutBtn.setVisible(true);
             loginBtn.setVisible(false);
@@ -111,6 +128,7 @@ public class Controller {
             emailTextField.setVisible(false);
             pwTextField.setVisible(false);
             makeAccBtn.setVisible(false);
+            searchButton.setVisible(true);
         }
         pwTextField.clear();
     }
@@ -160,6 +178,14 @@ public class Controller {
         countryTextField.setVisible(toggleUI);
 
         toggleUI = !toggleUI;
+    }
+    //switching to another scene when search button is pressed
+    public void switchToSearchScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("SearchScene.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
