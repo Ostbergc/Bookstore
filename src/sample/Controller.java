@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -87,6 +88,12 @@ public class Controller {
 
     @FXML
     private Label cityLabel;
+    @FXML
+    private Button issuebook;
+    @FXML
+    private Button addbook;
+
+
 
     //connector object to use the SQL related methods in the SQLConnector class
     SQLConnector connector = new SQLConnector();
@@ -119,6 +126,7 @@ public class Controller {
 
         //if the user is logged in, hide all the elements related to logging in and/or registering
         if (Main.isLoggedIn) {
+            addbook.setVisible(true);
             emailTextField.clear();
             logOutBtn.setVisible(true);
             loginBtn.setVisible(false);
@@ -129,6 +137,8 @@ public class Controller {
             pwTextField.setVisible(false);
             makeAccBtn.setVisible(false);
             searchButton.setVisible(true);
+
+
         }
         pwTextField.clear();
     }
@@ -179,13 +189,40 @@ public class Controller {
 
         toggleUI = !toggleUI;
     }
+
     //switching to another scene when search button is pressed
     public void switchToSearchScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("SearchScene.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    @FXML
+    private void issuebook(ActionEvent ae) throws IOException {
+        Node node = (Node) ae.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxmlfiles/IssueBook.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
+
+    @FXML
+    private void addbook(ActionEvent ae) throws IOException {
+        Node node = (Node) ae.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxmlfiles/addBook.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
+
+
+

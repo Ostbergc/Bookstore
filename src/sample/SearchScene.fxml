@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchController">
     <Label layoutX="243.0" layoutY="14.0" text="Search scene">
         <font>
           <Font size="20.0" />
@@ -15,7 +15,7 @@
     </Label>
    <Button fx:id="goBackButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMainMenu" text="Go back" />
    <Button fx:id="displayAllButton" layoutX="44.0" layoutY="57.0" mnemonicParsing="false" onAction="#fillListWithBooks" text="Display all books" />
-   <ListView fx:id="listView" layoutX="44.0" layoutY="89.0" prefHeight="252.0" prefWidth="513.0" />
+   <ListView fx:id="listView" layoutX="44.0" layoutY="89.0" prefHeight="252.0" prefWidth="472.0" />
    <TextField fx:id="searchTextField" layoutX="350.0" layoutY="57.0" promptText="Search for books" />
    <Button fx:id="searchButtonTwo" layoutX="505.0" layoutY="57.0" mnemonicParsing="false" onAction="#searchForBooks" text="Search" />
 </AnchorPane>

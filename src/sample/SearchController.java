@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.scene.control.TextField;
 
 public class SearchController implements Initializable {
 
@@ -93,4 +94,5 @@ public class SearchController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }
